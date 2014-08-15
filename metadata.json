@@ -1,5 +1,5 @@
 {
-  "name": "cassandra",
+  "name": "yieldbot_cassandra",
   "maintainer": "Michael S. Klishin",
   "maintainer_email": "michael@clojurewerkz.org",
   "license": "Apache 2.0",

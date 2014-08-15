@@ -19,7 +19,7 @@ default[:cassandra] = {
     :nproc    => 'unlimited'
   },
 
-  :templates_cookbook => "cassandra",
+  :templates_cookbook => "yieldbot_cassandra",
 
   :installation_dir   => "/usr/local/cassandra",
   :root_dir   => "/var/lib/cassandra", # data/ subdir added to this root
@@ -134,7 +134,7 @@ default[:cassandra][:encryption][:client] = {
   :keystore              => 'conf/.keystore',
   :keystore_password     => 'cassandra',
   :require_client_auth   => false,
-  # trust store only configured if require_client_auth is true. 
+  # trust store only configured if require_client_auth is true.
   :truststore            => 'conf/.truststore',
   :truststore_password   => 'cassandra',
   # More advanced option defaults... (matching the default file comments)
