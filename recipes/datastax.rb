@@ -23,11 +23,11 @@ include_recipe "java"
 
 Chef::Application.fatal!("attribute node['cassandra']['cluster_name'] not defined") unless node.cassandra.cluster_name
 
-include_recipe "cassandra::user" if node.cassandra.setup_user
+include_recipe "yieldbot_cassandra::user" if node.cassandra.setup_user
 
 case node["platform_family"]
 when "debian"
-  # I don't understand why these are needed when installing from a package? Certainly broken on Centos. 
+  # I don't understand why these are needed when installing from a package? Certainly broken on Centos.
   [node.cassandra.installation_dir,
    node.cassandra.bin_dir,
    node.cassandra.lib_dir].each do |dir|
@@ -105,7 +105,7 @@ when "rhel"
 
 end
 
-# These are required irrespective of package construction. 
+# These are required irrespective of package construction.
 [node.cassandra.root_dir,
   node.cassandra.log_dir,
   node.cassandra.commitlog_dir,
