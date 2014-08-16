@@ -40,12 +40,7 @@ end
 
 server_ip = node[:cassandra][:opscenter][:agent][:server_host]
 if !server_ip
-  search_results = discover_all(:cassandra, :opscenter_server)
-  unless search_results.empty?
-    server_ip = search_results[0].ipaddress
-  else
-    return # Continue until opscenter will come up
-  end
+  server_ip = discover(:cassandra, :opscenter_server).ipaddress
 end
 
 package "#{node[:cassandra][:opscenter][:agent][:package_name]}" do
