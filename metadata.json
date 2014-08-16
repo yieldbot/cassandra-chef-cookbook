@@ -4,14 +4,15 @@
   "maintainer_email": "michael@clojurewerkz.org",
   "license": "Apache 2.0",
   "description": "Installs/configures Apache Cassandra",
-  "version": "2.7.0",
+  "version": "2.7.1",
 
   "dependencies": {
       "java": ">= 0.0.0",
       "ulimit": ">= 0.0.0",
       "apt": ">= 0.0.0",
       "yum": "~> 3.0",
-      "ark": ">= 0.0.0"
+      "ark": ">= 0.0.0",
+      "silverware": ">= 0.0.0"
   },
 
   "platforms": {

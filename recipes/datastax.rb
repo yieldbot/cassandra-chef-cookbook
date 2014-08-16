@@ -166,3 +166,7 @@ service "cassandra" do
   service_name node.cassandra.service_name
   action node.cassandra.service_action
 end
+
+if ( node[:cassandra][:seed_node] || (node[:facet_index].to_i % 3 == 0) )
+  announce(:cassandra, :seed)
+end
