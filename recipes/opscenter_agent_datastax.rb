@@ -40,13 +40,13 @@ end
 
 server_ip = node[:cassandra][:opscenter][:agent][:server_host]
 if !server_ip
-  search_results = search(:node, "roles:#{node[:cassandra][:opscenter][:agent][:server_role]}")
+  search_results = discover_all(:cassandra, :opscenter_server)
   unless search_results.empty?
-    server_ip = search_results[0]['ipaddress']
+    server_ip = search_results[0].ipaddress
   else
     return # Continue until opscenter will come up
   end
-end 
+end
 
 package "#{node[:cassandra][:opscenter][:agent][:package_name]}" do
   action :install
@@ -56,7 +56,6 @@ service "datastax-agent" do
   supports :restart => true, :status => true
   action [:enable, :start]
 end
-
 
 template "/etc/datastax-agent/address.yaml" do
   mode 0644

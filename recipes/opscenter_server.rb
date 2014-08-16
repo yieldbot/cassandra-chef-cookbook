@@ -52,3 +52,4 @@ template "/etc/opscenter/opscenterd.conf" do
   notifies :restart, resources(:service => "opscenterd"), :delayed
 end
 
+announce(:cassandra, :opscenter_server)
