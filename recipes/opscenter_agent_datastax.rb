@@ -40,7 +40,7 @@ end
 
 server_ip = node[:cassandra][:opscenter][:agent][:server_host]
 if !server_ip
-  server_ip = discover(:cassandra, :opscenter_server).ipaddress
+  server_ip = discover(:cassandra, :opscenter_server).ipaddress rescue '127.0.0.1'
 end
 
 package "#{node[:cassandra][:opscenter][:agent][:package_name]}" do
