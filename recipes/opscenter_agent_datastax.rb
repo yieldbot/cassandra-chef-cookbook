@@ -57,7 +57,7 @@ service "datastax-agent" do
   action [:enable, :start]
 end
 
-template "/etc/datastax-agent/address.yaml" do
+template "#{node[:cassandra][:opscenter][:agent][:conf_dir]}/address.yaml" do
   mode 0644
   source "opscenter-agent.conf.erb"
   variables({
